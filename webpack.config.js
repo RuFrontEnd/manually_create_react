@@ -2,8 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "development",
+  entry: "./src/index.js", // 從哪個檔案開始打包
+  mode: "development", // 預設 bundle 的方式
   module: {
     rules: [
       {
@@ -17,13 +17,13 @@ module.exports = {
         use: ["style-loader", "css-loader"]
       }
     ]
-  },
+  }, // loaders => webpack 只可識別 js 或 json, 利用 loader 可以 bundle 不同的檔案類型(如 css 檔)
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: path.resolve(__dirname, "dist/"),
+    path: path.resolve(__dirname, "dist/"), // 要放的路徑
     publicPath: "/dist/",
-    filename: "bundle.js"
-  }, // 定義bundle出來要放在哪個路徑 / 
+    filename: "bundle.js" // bundle 出來的檔名
+  }, // 定義 bundle 出來的資訊 
   devServer: {
     contentBase: path.join(__dirname, "public/"),
     port: 3000,
