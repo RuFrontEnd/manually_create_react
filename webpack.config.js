@@ -13,8 +13,8 @@ module.exports = {
         options: { presets: ["@babel/env"] }
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.css$/, // 判斷副檔名為 .css 者
+        use: ["style-loader", "css-loader"] // 轉換的 loader
       }
     ]
   }, // loaders => webpack 只可識別 js 或 json, 利用 loader 可以 bundle 不同的檔案類型(如 css 檔)
