@@ -1,5 +1,7 @@
 // yarn add webpack
 // webpack 運作的方式是透過指定一個單一檔案作為你的進入點。 這個檔案會是依賴圖(dependency graph)的 root。然後你每次 require 一個檔案從其他檔案並把它加入到 tree。當你執行 webpack，所有的檔案和 module 都會被 bundle 成一個檔案。
+// 可用 serve ./dist 測試
+
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // yarn add html-webpack-plugin
