@@ -35,6 +35,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // 熱更新
-    new HtmlWebpackPlugin({ template: "./dist/index.html" }), // html-webpack-plugin 將生成一個 html 檔並將生成的 bundle.js 檔引入
+    new HtmlWebpackPlugin({ template: "./public/index.html" }), // html-webpack-plugin 將生成一個 html 檔並將生成的 bundle.js 檔引入, template 要指向一個 .html 檔案(可為空檔案)所在的路徑
   ],
 };
