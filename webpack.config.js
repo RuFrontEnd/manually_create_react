@@ -3,40 +3,40 @@
 // npm install --global serve => 可用 serve ./dist 測試
 
 const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // yarn add html-webpack-plugin
+// const webpack = require("webpack");
+// const HtmlWebpackPlugin = require("html-webpack-plugin"); // yarn add html-webpack-plugin
 
 module.exports = {
   entry: "./src/index.js", // 從哪個檔案開始打包 p.s.也可以是陣列, webpack會根據陣列的 length 產生多個 bundle 檔
   output: {
-    path: path.resolve(__dirname, "dist/"), // 要放的路徑, 預設為 ./dist/main.js
+    filename: "main.js", // bundle 出來的檔名
+    path: path.resolve(__dirname, "dist"), // 要放的路徑, 預設為 ./dist/main.js p.s __dirname => 檔案資料夾所在路徑
     // publicPath: "/dist/",
-    filename: "bundle.js", // bundle 出來的檔名
   }, // 定義輸出 bundle 的相關資訊
-  mode: "development", // 預設 bundle 的方式
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/, // 識別哪些檔案應該被 loader 轉換
-        exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] },
-      },
-      {
-        test: /\.css$/, // 判斷副檔名為 .css 者要被 loader 轉換
-        use: ["style-loader", "css-loader"], // 轉換的 loader
-      },
-    ],
-  }, // loaders => webpack 只可識別 js 或 json, 利用 loader 可以 bundle 不同的檔案類型(如 .css 檔)並可以在 .js 檔內 import 非 .js 的檔案
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  // mode: "development", // 預設 bundle 的方式
+  // module: {
+    // rules: [
+      // {
+      //   test: /\.(js|jsx)$/, // 識別哪些檔案應該被 loader 轉換
+      //   exclude: /(node_modules)/,
+      //   loader: "babel-loader",
+      //   options: { presets: ["@babel/env"] },
+      // },
+      // {
+      //   test: /\.css$/, // 判斷副檔名為 .css 者要被 loader 轉換
+      //   use: ["style-loader", "css-loader"], // 轉換的 loader
+      // },
+    // ]
+  // }, // loaders => webpack 只可識別 js 或 json, 利用 loader 可以 bundle 不同的檔案類型(如 .css 檔)並可以在 .js 檔內 import 非 .js 的檔案
+  // resolve: { extensions: ["*", ".js", ".jsx"] },
   // devServer: {
   //   contentBase: path.join(__dirname, "public/"),
   //   port: 3000,
   //   publicPath: "http://localhost:3000/dist/",
   //   hotOnly: true,
   // },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(), // 熱更新
-    new HtmlWebpackPlugin({ template: "./public/index.html" }), // html-webpack-plugin 將生成一個 html 檔並將生成的 bundle.js 檔引入, template 要指向一個 .html 檔案(可為空檔案)所在的路徑
-  ],
+  // plugins: [
+  // new webpack.HotModuleReplacementPlugin(), // 熱更新
+  // new HtmlWebpackPlugin({ template: "./public/index.html" }), // html-webpack-plugin 將生成一個 html 檔並將生成的 bundle.js 檔引入, template 要指向一個 .html 檔案(可為空檔案)所在的路徑
+  // ],
 };

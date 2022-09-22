@@ -1,8 +1,13 @@
-// build 完之後使用 serve 套件開啟伺服器
-// npm start 與 npm build 皆為 bundle, start => bundle development 模式 / build => bundle production 模式
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App.js";
-import "./index.css";
+// import App from "./App.js";
+import _ from 'lodash';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+function component() {
+    const element = document.createElement('div');
+  
+    // lodash（目前通过一个 script 引入）对于执行这一行是必需的
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  
+    return element;
+  }
+  
+  document.body.appendChild(component());
